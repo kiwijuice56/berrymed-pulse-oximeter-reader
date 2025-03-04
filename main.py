@@ -35,6 +35,7 @@ def receive_data(sender, data):
 
         labeled_data["pulse_rate"] = ((packet[2] & 0b01000000) << 7) | (packet[3] & 0b01111111)
         labeled_data["spo2"] = packet[4] & 0b01111111
+        labeled_data["bargraph"] = packet[2] & 0b00000111
 
         print(labeled_data)
 
